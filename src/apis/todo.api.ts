@@ -1,0 +1,21 @@
+import { Todo } from "../types/todo.type";
+import httpClient from "../utils/http";
+
+const URL = "/api/todo";
+
+const todoApi = {
+  getTodos: () => {
+    return httpClient.get<Todo[]>(URL);
+  },
+  addTodo: (title: string) => {
+    return httpClient.post(URL, { title });
+  },
+  updateTodo: (id: number, title: string) => {
+    return httpClient.put(`${URL}/${id}`, { title });
+  },
+  deleteTodo: (id: number) => {
+    return httpClient.delete(`${URL}/${id}`);
+  },
+};
+
+export default todoApi;
