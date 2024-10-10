@@ -1,7 +1,7 @@
 import { TodoListResponse, TodoSearchParams } from "../types/todo.type";
 import httpClient from "../utils/http";
 
-const URL = "/api/todo";
+const URL = "/todo";
 
 const todoApi = {
   getTodos: (searchParams: TodoSearchParams) => {
