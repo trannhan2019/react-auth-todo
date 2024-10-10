@@ -8,7 +8,7 @@ const HomeLayout = () => {
       <AppShell.Header>
         <Header />
       </AppShell.Header>
-      <AppShell.Main>
+      <AppShell.Main pos={"relative"}>
         <Outlet />
       </AppShell.Main>
     </AppShell>

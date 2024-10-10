@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout/HomeLayout";
-import Todo from "./pages/todo/Todo";
+import { lazy, Suspense } from "react";
+import Loading from "./components/Loading/Loading";
+// import Loading from "./components/Loading/Loading";
+
+const Todo = lazy(() => import("./pages/todo/Todo"));
 
 const router = createBrowserRouter([
   {
@@ -9,7 +13,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/todo",
-        element: <Todo />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Todo />
+          </Suspense>
+        ),
       },
     ],
   },

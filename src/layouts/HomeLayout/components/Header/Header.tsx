@@ -7,7 +7,6 @@ import {
   Drawer,
   ScrollArea,
   rem,
-  useMantineTheme,
   Image,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
@@ -20,7 +19,7 @@ export default function Header() {
     useDisclosure(false);
 
   return (
-    <Box pb={120}>
+    <Box>
       <Box component="header" h={56} px={"md"}>
         <Group justify="space-between" h="100%">
           <Image src={MetaLogo} width={48} />

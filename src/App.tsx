@@ -1,10 +1,14 @@
 import "@mantine/core/styles.css";
+import "@mantine/nprogress/styles.css";
+import "@mantine/notifications/styles.css";
 import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import { theme } from "./theme";
 import { RouterProvider } from "react-router-dom";
 import router from "./router.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { NavigationProgress } from "@mantine/nprogress";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,6 +24,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme}>
         <RouterProvider router={router} />
+        <NavigationProgress />
+        <Notifications />
       </MantineProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

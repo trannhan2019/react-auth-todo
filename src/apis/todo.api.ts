@@ -1,11 +1,13 @@
-import { Todo } from "../types/todo.type";
+import { TodoListResponse, TodoSearchParams } from "../types/todo.type";
 import httpClient from "../utils/http";
 
 const URL = "/api/todo";
 
 const todoApi = {
-  getTodos: () => {
-    return httpClient.get<Todo[]>(URL);
+  getTodos: (searchParams: TodoSearchParams) => {
+    console.log(searchParams);
+
+    return httpClient.get<TodoListResponse>(URL, { params: searchParams });
   },
   addTodo: (title: string) => {
     return httpClient.post(URL, { title });
