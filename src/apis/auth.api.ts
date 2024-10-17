@@ -1,14 +1,15 @@
 import httpClient from "../utils/http";
+import axios from "../utils/axios";
 
-const URL = "/auth";
+const URL = "/api/auth";
 
 const authApi = {
-  login: (username: string, password: string) => {
-    return httpClient.post(`${URL}/login`, { username, password });
+  login: (email: string, password: string) => {
+    return httpClient.post(`${URL}/login`, { email, password });
   },
 
   register: (name: string, email: string, password: string) => {
-    return httpClient.post(`${URL}/register`, { name, email, password });
+    return axios.post(`${URL}/register`, { name, email, password });
   },
 };
 

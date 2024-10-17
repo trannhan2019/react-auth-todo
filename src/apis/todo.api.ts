@@ -1,5 +1,6 @@
 import { TodoListResponse, TodoSearchParams } from "../types/todo.type";
-import httpClient from "../utils/http";
+// import httpClient from "../utils/http";
+import axios from "../utils/axios";
 
 const URL = "/todo";
 
@@ -7,16 +8,16 @@ const todoApi = {
   getTodos: (searchParams: TodoSearchParams) => {
     console.log(searchParams);
 
-    return httpClient.get<TodoListResponse>(URL, { params: searchParams });
+    return axios.get<TodoListResponse>(URL, { params: searchParams });
   },
   addTodo: (title: string) => {
-    return httpClient.post(URL, { title });
+    return axios.post(URL, { title });
   },
   updateTodo: (id: number, title: string) => {
-    return httpClient.put(`${URL}/${id}`, { title });
+    return axios.put(`${URL}/${id}`, { title });
   },
   deleteTodo: (id: number) => {
-    return httpClient.delete(`${URL}/${id}`);
+    return axios.delete(`${URL}/${id}`);
   },
 };
 

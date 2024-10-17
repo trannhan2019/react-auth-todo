@@ -9,7 +9,7 @@ import {
   rem,
   Image,
 } from "@mantine/core";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import MetaLogo from "../../../../assets/meta-48.svg";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./Header.module.css";
@@ -34,8 +34,12 @@ export default function Header() {
           </Group>
 
           <Group visibleFrom="sm">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="default" component={Link} to={"/login"}>
+              Log in
+            </Button>
+            <Button component={Link} to={"/register"}>
+              Sign up
+            </Button>
           </Group>
 
           <Burger
@@ -68,8 +72,10 @@ export default function Header() {
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="default" component={Link} to={"/login"}>
+              Log in
+            </Button>
+            <Button component={Link} to={"/register"}></Button>
           </Group>
         </ScrollArea>
       </Drawer>
